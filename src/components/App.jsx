@@ -1,16 +1,27 @@
+import { MoviePage } from 'pages/Movies/MoviePage';
+import { SingleMovie } from 'pages/SingleMovie/SingleMovie';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import { Cast } from 'pages/SingleMovie/Cast/Cast';
+import { Reviews } from 'pages/SingleMovie/Reviews/Reviews';
+import Layout from './Layout/Layout';
+import Home from 'pages/Home/Home';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <BrowserRouter basename="/goit-react-hw-05-movies">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/movies" element={<MoviePage />} />
+            <Route path="/movies/:movieID" element={<SingleMovie />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
