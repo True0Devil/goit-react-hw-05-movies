@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'services/tmdb.service';
 import { Link } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
@@ -8,6 +8,8 @@ import { Outlet } from 'react-router-dom';
 export const SingleMovie = () => {
   const [movie, setMovie] = useState(null);
   const { movieID } = useParams();
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     fetchMovieById(movieID).then(setMovie);
@@ -21,6 +23,8 @@ export const SingleMovie = () => {
 
   return (
     <main>
+      <Link to={location.state?.from ?? '/movies'}>Back</Link>
+
       <img
         src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
         alt=""
