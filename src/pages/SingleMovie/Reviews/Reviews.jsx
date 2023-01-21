@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { fetchMovieById } from 'services/tmdb.service';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState();
   const { movieID } = useParams();
 
@@ -13,11 +13,9 @@ export const Reviews = () => {
     );
   }, [movieID]);
 
-    if (!reviews) {
-      return;
-    }
-
-  console.log('reviews', reviews);
+  if (!reviews) {
+    return;
+  }
 
   return (
     <ul>
@@ -34,3 +32,5 @@ export const Reviews = () => {
     </ul>
   );
 };
+
+export default Reviews;

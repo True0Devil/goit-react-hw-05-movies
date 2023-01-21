@@ -1,15 +1,12 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import { fetchMovieById } from 'services/tmdb.service';
-import { Link } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useLocation, useParams, Link, Outlet } from 'react-router-dom';
 
-export const SingleMovie = () => {
+import { fetchMovieById } from 'services/tmdb.service';
+
+const SingleMovie = () => {
   const [movie, setMovie] = useState(null);
   const { movieID } = useParams();
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     fetchMovieById(movieID).then(setMovie);
@@ -18,8 +15,6 @@ export const SingleMovie = () => {
   if (!movie) {
     return;
   }
-
-  console.log(movie);
 
   return (
     <main>
@@ -60,3 +55,5 @@ export const SingleMovie = () => {
     </main>
   );
 };
+
+export default SingleMovie;

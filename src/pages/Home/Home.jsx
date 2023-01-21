@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { fetchTrendingMovies } from 'services/tmdb.service';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
+import { fetchTrendingMovies } from 'services/tmdb.service';
 
 const Home = () => {
   const [trending, setTrending] = useState();
@@ -14,7 +14,6 @@ const Home = () => {
   if (!trending) {
     return;
   }
-  console.log(trending);
 
   return (
     <main>
