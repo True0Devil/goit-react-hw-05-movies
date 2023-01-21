@@ -16,6 +16,7 @@ const Home = () => {
 
   return (
     <main>
+      <h1 className='mb-5 ms-5'>Trending Today</h1>
       <MovieList movies={trending} />
     </main>
   );

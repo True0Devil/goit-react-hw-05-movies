@@ -15,17 +15,24 @@ export const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <form action="" onSubmit={handleFormSubmit}>
-      <label htmlFor="">
+    <form
+      action=""
+      onSubmit={handleFormSubmit}
+      className="mb-5 ms-2"
+    >
+      <label htmlFor="" className="w-25 me-2">
         <input
           type="text"
           value={query}
           onChange={handleIтputChange}
           name="query"
+          className="form-control"
         />
       </label>
 
-      <button type="submit">Search</button>
+      <button type="submit" className="btn btn-primary">
+        Search
+      </button>
     </form>
   );
 };

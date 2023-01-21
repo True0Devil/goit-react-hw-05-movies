@@ -1,17 +1,22 @@
 import { Link, useLocation } from 'react-router-dom';
 
-export const MovieList = ({ movies}) => {
+export const MovieList = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <ul>
+    <ul className="list-group flex-row flex-wrap">
       {movies.map(movie => (
-        <li key={movie.id}>
-          <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+        <li
+          key={movie.id}
+          className="list-group-item btn btn-primary w-50 p-0 border"
+        >
+          <Link
+            to={`/movies/${movie.id}`}
+            state={{ from: location }}
+            className="text-decoration-none text-black d-block  p-3"
+          >
             {movie.title}
           </Link>
-
-          
         </li>
       ))}
     </ul>

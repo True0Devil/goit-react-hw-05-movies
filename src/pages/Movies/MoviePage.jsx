@@ -42,6 +42,7 @@ const MoviePage = () => {
   const handleSubmit = value => {
     const query = value.toLowerCase().trim();
     if (!query) return;
+    setMovies(null);
     setSearchParams({ search: query });
   };
 
