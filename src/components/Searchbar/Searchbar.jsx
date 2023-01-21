@@ -1,10 +1,20 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
+  const [searchParam] = useSearchParams();
 
-  const handleIтputChange = e => {
+  useEffect(() => {
+    const param = searchParam.get('search');
+    if (param) {
+      setQuery(param);
+    }
+  }, [searchParam]);
+
+  const handleInputChange = e => {
     const { value } = e.currentTarget;
     setQuery(value);
   };
@@ -16,16 +26,12 @@ export const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <form
-      action=""
-      onSubmit={handleFormSubmit}
-      className="mb-5 ms-2"
-    >
+    <form action="" onSubmit={handleFormSubmit} className="mb-5 ms-2">
       <label htmlFor="" className="w-25 me-2">
         <input
           type="text"
           value={query}
-          onChange={handleIтputChange}
+          onChange={handleInputChange}
           name="query"
           className="form-control"
         />
@@ -40,4 +46,4 @@ export const Searchbar = ({ onSubmit }) => {
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-}
+};
