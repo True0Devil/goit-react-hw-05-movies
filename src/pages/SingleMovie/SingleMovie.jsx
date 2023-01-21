@@ -9,7 +9,6 @@ const SingleMovie = () => {
   const { movieID } = useParams();
   const location = useLocation();
 
-  console.log(location);
 
   useEffect(() => {
     fetchMovieById(movieID).then(setMovie);
@@ -23,7 +22,7 @@ const SingleMovie = () => {
     <main>
       <button className="d-block p-0 border-0 ms-3 mb-4" type="button">
         <Link
-          to={location.state?.from ?? '/movies'}
+          to={location.state?.from ?? '/'}
           className="btn btn-primary py-2 px-3"
         >
           Back

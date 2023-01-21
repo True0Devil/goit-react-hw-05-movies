@@ -25,8 +25,7 @@ const Cast = () => {
           key={actor.id}
           className="list-group-item  w-25 d-flex flex-column align-items-center"
         >
-          <img
-            // src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}` || image}
+          <img            
             src={
               actor.profile_path
                 ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`

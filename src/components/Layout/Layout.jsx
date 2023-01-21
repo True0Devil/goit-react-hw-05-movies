@@ -8,7 +8,7 @@ const Layout = () => {
         <nav className="navbar bg-dark" data-bs-theme="dark">
           <ul className="navbar-nav mb-2 mb-lg-0 flex-row gap-5 ms-5 fs-2">
             <li className="nav-item">
-              <NavLink to="" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 Home
               </NavLink>
             </li>
