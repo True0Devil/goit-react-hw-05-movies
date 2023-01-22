@@ -21,6 +21,7 @@ export const Searchbar = ({ onSubmit }) => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
+    if (searchParam.get('search') === query) return;
     onSubmit(query);
     setQuery('');
   };
