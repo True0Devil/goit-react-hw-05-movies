@@ -5,14 +5,17 @@ import { useEffect } from 'react';
 
 export const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
+  const [isFirstRender, setFirstRender] = useState(true);
   const [searchParam] = useSearchParams();
 
   useEffect(() => {
-    const param = searchParam.get('search');
-    if (param) {
-      setQuery(param);
+    if (!isFirstRender) {
+      return;
     }
-  }, [searchParam]);
+    const param = searchParam.get('search');
+    param && setQuery(param);
+    setFirstRender(false);
+  }, [searchParam, isFirstRender]);
 
   const handleInputChange = e => {
     const { value } = e.currentTarget;
